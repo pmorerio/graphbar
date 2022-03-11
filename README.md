@@ -8,7 +8,7 @@
 + matplotlib 3.3.2
 + pandas 1.1.2
 + seaborn 0.11.0
-+ 
+
 ## Setting up the environment
 ```
 conda create -n pose_selector python=3.8
@@ -39,8 +39,10 @@ conda install -c openbabel openbabel=2.4.1
 
 4. Docking results are compressed and splited in "data/" directory. You should join files to one tar.gz file and extract it.
 ```
+  cd data/
   cat docking.parta* > docking.tar.gz
   tar -xzvf docking.tar.gz
+  cd ..
 ```
 If you prepared your own docking results, replace them into "data/docking/" directory, and split the result into multiple single pdbqt file for each structure in its pdb-name-directory(ex. "docking/8gpb/8gpb_0.pdbqt", "docking/8gpb/8gpb_1.pdbqt", ...). If you use "split_output.py" in "data/docking/" directory, it will make "docking_dict.pickle" file(docking results which passed filtering). Move the file to main directory for dataset2 and dataset4.
 
