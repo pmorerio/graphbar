@@ -8,6 +8,17 @@
 + matplotlib 3.3.2
 + pandas 1.1.2
 + seaborn 0.11.0
++ 
+## Setting up the environment
+```
+conda create -n pose_selector python=3.8
+conda activate pose_selector
+``` 
+Install requirements
+```
+pip install -r requirements.txt
+conda install -c openbabel openbabel
+```
 
 
 ## Protocols
