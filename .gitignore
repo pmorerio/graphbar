@@ -1,2 +1,9 @@
 database
+*npy
+*pyc
+*pycache*
+*.tar.gz\
+*.log
+data/*
+*.mol2
 
