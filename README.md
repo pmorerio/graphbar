@@ -1,14 +1,5 @@
 # graphBAR
 
-## Requirements
-+ Python 3.6
-+ tensorflow 1.12
-+ openbabel 2.4.1
-+ numpy 1.19.2
-+ matplotlib 3.3.2
-+ pandas 1.1.2
-+ seaborn 0.11.0
-
 ## Setting up the environment
 ```
 conda create -n pose_selector python=3.8
@@ -52,21 +43,22 @@ If you prepared your own docking results, replace them into "data/docking/" dire
   python split_dataset2.py -i INPUT_PATH -o OUTPUT_PATH -s NUMBER_OF_VALIDATION_SET
   python split_dataset3.py -i INPUT_PATH -o OUTPUT_PATH -s NUMBER_OF_VALIDATION_SET
   python split_dataset4.py -i INPUT_PATH -o OUTPUT_PATH -s NUMBER_OF_VALIDATION_SET
-  ```
-  
+```
+
 Example:
 ```
-python split_dataset1.py -i data -o data/set1 -s 369
+  mkdir data/set1
+  python split_dataset1.py -i data -o data/set1 -s 369
 ```
 
 6. Training and test the data.
 ```
-python training.py -s DATA_PATH(output path of split_dataset file) -at ADJ_TYPE(float, 1, 2, 4, 8) -o OUTPUT_PATH -t TESTSET(core, core2013) -gpu CUDA_VISIBLE_DEVICES
+  python training.py -s DATA_PATH(output path of split_dataset file) -at ADJ_TYPE(float, 1, 2, 4, 8) -o OUTPUT_PATH -t TESTSET(core, core2013) -gpu CUDA_VISIBLE_DEVICES
 ```
-  
+
 Example:
 ```
-python training.py -s data/set1 -at 2 -gpu 0 -o results/set1/adj2 -t core
+  python training.py -s data/set1 -at 2 -gpu 0 -o results/set1/adj2 -t core
 ```
 
 7. You can analyse the outputs.
@@ -75,7 +67,7 @@ python training.py -s data/set1 -at 2 -gpu 0 -o results/set1/adj2 -t core
 ```
 Example:
 ```
-python analysis.py results/set1/adj2 2 core
+  python analysis.py results/set1/adj2 2 core
 ```
 
 Time analysis
@@ -85,19 +77,25 @@ Time analysis
 
 Example:
 ```
-python time-analysis.py results/set1/adj2 2 core
+  python time-analysis.py results/set1/adj2 2 core
 ```
 
 8. (optional) If you want to analyse original data of paper, you can use "analysis_set.py" or "time_analysis_set.py".
 ```
   python analysis_set.py DATASET(set1, set2, set3, set4) MODEL_NAME(adjfloat_01, ..., adj8_05) RESULT_NAME
-  ex) python analysis_set.py set4 adj2_05 set4-2-core
-  
+```
+Example:
+```
+  python analysis_set.py set4 adj2_05 set4-2-core
+```
+
+Time analysis
+```
   python3 time_analysis.set.py DATASET(set1, set2, set3, set4) MODEL_NAME(adjfloat_01, ..., adj8_05) RESULT_NAME
-  ```
-  
-  Example:
-  ```
+```
+
+Example:
+```
   python time_analysis_set.py set4 adj2_05 set4-2-core
 ```
 
