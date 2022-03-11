@@ -52,22 +52,40 @@ If you prepared your own docking results, replace them into "data/docking/" dire
   python split_dataset2.py -i INPUT_PATH -o OUTPUT_PATH -s NUMBER_OF_VALIDATION_SET
   python split_dataset3.py -i INPUT_PATH -o OUTPUT_PATH -s NUMBER_OF_VALIDATION_SET
   python split_dataset4.py -i INPUT_PATH -o OUTPUT_PATH -s NUMBER_OF_VALIDATION_SET
-  ex) python split_dataset1.py -i data -o data/set1 -s 369
+  ```
+  
+Example:
+```
+python split_dataset1.py -i data -o data/set1 -s 369
 ```
 
 6. Training and test the data.
 ```
-  python training.py -s DATA_PATH(output path of split_dataset file) -at ADJ_TYPE(float, 1, 2, 4, 8) -o OUTPUT_PATH -t TESTSET(core, core2013) -gpu CUDA_VISIBLE_DEVICES
-  ex) python training.py -s data/set1 -at 2 -gpu 0 -o results/set1/adj2 -t core
+python training.py -s DATA_PATH(output path of split_dataset file) -at ADJ_TYPE(float, 1, 2, 4, 8) -o OUTPUT_PATH -t TESTSET(core, core2013) -gpu CUDA_VISIBLE_DEVICES
+```
+  
+Example:
+```
+python training.py -s data/set1 -at 2 -gpu 0 -o results/set1/adj2 -t core
 ```
 
 7. You can analyse the outputs.
 ```
   python analysis.py OUTPUT_PATH ADJ_TYPE TESTSET
-  ex) python analysis.py results/set1/adj2 2 core
-  
+```
+Example:
+```
+python analysis.py results/set1/adj2 2 core
+```
+
+Time analysis
+```
   python3 time-analysis.py OUTPUT_PATH ADJ_TYPE TESTSET
-  ex) python time-analysis.py results/set1/adj2 2 core
+```
+
+Example:
+```
+python time-analysis.py results/set1/adj2 2 core
 ```
 
 8. (optional) If you want to analyse original data of paper, you can use "analysis_set.py" or "time_analysis_set.py".
@@ -76,7 +94,11 @@ If you prepared your own docking results, replace them into "data/docking/" dire
   ex) python analysis_set.py set4 adj2_05 set4-2-core
   
   python3 time_analysis.set.py DATASET(set1, set2, set3, set4) MODEL_NAME(adjfloat_01, ..., adj8_05) RESULT_NAME
-  ex) python time_analysis_set.py set4 adj2_05 set4-2-core
+  ```
+  
+  Example:
+  ```
+  python time_analysis_set.py set4 adj2_05 set4-2-core
 ```
 
 If you have any problem to process, please contact json@kaist.ac.kr.
