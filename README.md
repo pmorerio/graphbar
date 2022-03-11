@@ -8,7 +8,7 @@
 + matplotlib 3.3.2
 + pandas 1.1.2
 + seaborn 0.11.0
-+ 
+
 ## Setting up the environment
 ```
 conda create -n pose_selector python=3.8
