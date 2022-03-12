@@ -2,7 +2,7 @@
 
 ## Setting up the environment
 ```
-conda create -n pose_selector python=3.8
+conda create -n pose_selector python=3.6
 conda activate pose_selector
 ``` 
 Install requirements
