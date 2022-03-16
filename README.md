@@ -7,6 +7,8 @@ conda activate pose_selector
 ``` 
 Install requirements
 ```
+conda install cudatoolkit=9.0
+conda install cudnn=7.6.5
 pip install -r requirements.txt
 conda install -c openbabel openbabel=2.4.1
 ```
